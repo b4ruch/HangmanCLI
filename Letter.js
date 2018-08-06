@@ -1,3 +1,12 @@
+/* 
+***********************************************
+*Author: Baruch Flores                        *
+*Homework 11: Hangman on NodeJS               *
+*UCB Extension - Full-Stack Bootcamp          *
+*August 2018                                  *
+*********************************************** 
+*/
+
 const Letter = function (uchar) {
     this.uchar = uchar;
     this.guessed = false;

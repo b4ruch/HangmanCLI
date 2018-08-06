@@ -1,3 +1,12 @@
+/* 
+***********************************************
+*Author: Baruch Flores                        *
+*Homework 11: Hangman on NodeJS               *
+*UCB Extension - Full-Stack Bootcamp          *
+*August 2018                                  *
+*********************************************** 
+*/
+
 let Letter = require("./Letter.js");
 const Word = function (word) {
 

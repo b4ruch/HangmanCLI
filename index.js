@@ -1,3 +1,12 @@
+/* 
+***********************************************
+*Author: Baruch Flores                        *
+*Homework 11: Hangman on NodeJS               *
+*UCB Extension - Full-Stack Bootcamp          *
+*August 2018                                  *
+*********************************************** 
+*/
+
 const Word = require("./Word.js");
 const inquirer = require("inquirer");
 
@@ -20,7 +29,6 @@ let wins = 0;
 let losses = 0;
 let exit = false;
 let guessHistory = "";
-
 
 
 function showStats() {
@@ -84,7 +92,7 @@ function guessWord(word) {
 
 
 function start() {
-    console.log('\n\nHangman - Famous TVs and Series');
+    console.log('\n\n------------Hangman - Famous TV Series------------');
 
     if (!exit) {
         inquirer.prompt([
