@@ -55,7 +55,6 @@ function guessWord(word) {
             //Save current guess
             let currentGuess = word.toString();
             //update characters that match user input
-            // word.resolveChars(ans.userChar.toUpperCase());
             word.resolveChars(ans.userChar.toUpperCase());
             //compare currentGuess with newGuess
             if (currentGuess == word.toString()) {
