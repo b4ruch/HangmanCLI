@@ -14,7 +14,7 @@ let Words = [
     `MAD MEN`
 ];
 
-const _GUESSES_ = 2;
+const _GUESSES_ = 5;
 let numGuesses = _GUESSES_;
 let wins = 0;
 let losses = 0;
