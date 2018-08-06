@@ -19,6 +19,7 @@ let numGuesses = _GUESSES_;
 let wins = 0;
 let losses = 0;
 let exit = false;
+let guessHistory = "";
 
 
 
@@ -35,12 +36,26 @@ function guessWord(word) {
             {
                 type: "input",
                 name: "userChar",
-                message: `Guess a letter: `
+                message: `Guess a letter: `,
+                validate: (ans) => {
+                    if (ans.length > 1) {
+                        return "\nError:  Only One character is accepted\n";
+                    }
+                    ans = ans.toUpperCase();
+                    if (guessHistory.includes(ans)) {
+                        return "\nINCORRECT,  You already guessed that letter\n";
+                    }
+                    else {
+                        guessHistory += ans;
+                        return true;
+                    }
+                }
             }
         ]).then(ans => {
             //Save current guess
             let currentGuess = word.toString();
             //update characters that match user input
+            // word.resolveChars(ans.userChar.toUpperCase());
             word.resolveChars(ans.userChar.toUpperCase());
             //compare currentGuess with newGuess
             if (currentGuess == word.toString()) {
@@ -58,18 +73,19 @@ function guessWord(word) {
 
             console.log(`\n\t\t${word.toString()}\n\t\t----You win!----\n`);
             wins++;
-            showStats();
         }
         else {
             console.log(`\n\t\t----You lose----\n`);
             losses++;
         }
+        showStats();
         start();
     }
 }
 
 
 function start() {
+    console.log('\n\nHangman - Famous TVs and Series');
 
     if (!exit) {
         inquirer.prompt([
@@ -84,6 +100,7 @@ function start() {
             switch (ans.option) {
                 case "New Game":
                     numGuesses = _GUESSES_;
+                    guessHistory = "";
                     let word = new Word(Words[Math.floor(Math.random() * Words.length)]);
                     word.resolveChars("");
                     guessWord(word);
@@ -101,5 +118,6 @@ function start() {
         });
     }
 }
+
 
 start();
